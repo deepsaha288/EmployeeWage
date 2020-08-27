@@ -2,23 +2,29 @@ public class EmployeeWage
 {
 	public static void main(String args[])
 	{
-                // CONSTANTS
-	        int isFullTime = 1;
-                int empRatePerHrs=20;
+                 // CONSTANTS
+		 int isPartTime=1;
+	         int isFullTime=2;
+		 int epmRatePerHrs=20;
+
 		//VARIABLES
 		int empHrs=0;
 		int empWage=0;
 
-		//main logic execution
-		int empCheck = (int)( Math.random() * 10 ) % 2;
-		System.out.println(empCheck);
+		//COMPUTATION
+		int empCheck = (int)( Math.random() * 10 ) % 3;
 
-		if ( empCheck == isFullTime )
+		if ( empCheck == isParTime )
+			empHrs=4;
+
+		else if ( empCheck == isFullTime )
 			empHrs=8;
+
 		else
 			empHrs=0; 
 
 		empWage=empHrs * empRatePerHrs;
 		System.out.println("Employee Wage:" + empWage);
 	}
+
 }
