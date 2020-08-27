@@ -1,30 +1,48 @@
 public class EmployeeWage
 {
-	public static void main(String args[])
-	{
-                 // CONSTANTS
-		 int isPartTime=1;
-	         int isFullTime=2;
-		 int epmRatePerHrs=20;
+                //CONSTANTS
+	       public static final int PartTime=1;
+	       public static final int FullTime=2;
+	       public static final int Absent=0;
+	       public static final int EmpRatePerHrs=20;
 
+	     public void calculatedEmployeeWage()
+	        {
 		//VARIABLES
-		int empHrs=0;
+		int employeeHour=0;
 		int empWage=0;
 
-		//COMPUTATION
+	 	//COMPUTATION
 		int empCheck = (int)( Math.random() * 10 ) % 3;
 
-		if ( empCheck == isParTime )
-			empHrs=4;
+		              switch(empCheck){
+			case PartTime
+					employeeHour=4;
+					break;
 
-		else if ( empCheck == isFullTime )
-			empHrs=8;
+			case FullTime:
+					employeeHour=8;
+					break;
 
-		else
-			empHrs=0; 
+			case Absent:
+                                        employeeHour = 0;
+                                               break;
 
-		empWage=empHrs * empRatePerHrs;
-		System.out.println("Employee Wage:" + empWage);
+			default:
+				System.out.println("invalid choice");
+		}
+
+		        empWage=employeeHour * empRatePerHrs;
+		    System.out.println("Employee Wage:" + empWage);
 	}
 
+	 //main method
+    public static void main(String args[]){
+
+    //create object of class
+    EmployeeWage employee = new EmployeeWage();
+
+    //method call
+    employee.calculatedEmployeeWage();
+    }
 }
