@@ -1,51 +1,54 @@
 public class EmployeeWage
 {
 
-	//CONSTANTS
-	public static final int PartTime=1;
-	public static final int FullTime=2;
-	public static final int Absent=0;
-	public static final int empRatePerHrs=20;
+        //CONSTANTS
+	final int Absent=0;
+        final int PartTime=1;
+	final int FullTime=2;
+	final int empRatePerHrs=20;
+	final int MaxWoringHrs=100;
+	final int MaxDays=20;
 
-	public void calculatedEmployeeWage()
-	{
+	        public void calculatedEmployeeWage()
+         	{
 		//VARIABLES
+		int totalEmployeeHour=0;
 		int employeeHour=0;
-		int empWage=0;
 		int totalSalary=0;
-		int salary=0;
-		int workingDays=20;
+		int totalWorkingDays=0;
 
-		for(int day=1;day<=workingDays;day++)
+		while(totalWorkingDays<MaxDays && totalEmployeeHour<MaxWoringHrs)
 		{
+			totalWorkingDays++;
+
 	 		//COMPUTATION
 			int empCheck = (int)( Math.random() * 10 ) % 3;
 
-			                 switch(empCheck){
+			         switch(empCheck){
 				case PartTime:
-						employeeHour=4;
-						break;
+					employeeHour=4;
+					break;
 
 				case FullTime:
-						employeeHour=8;
-						break;
+					employeeHour=8;
+					break;
 
 				case Absent:
-            	                               employeeHour = 0;
-               	                                break;
+            	                        employeeHour = 0;
+                                        break;
 
-				    default:
-				System.out.println("invalid choice");
+				 default:
+				       System.out.println("invalid choice");
 			}
 
-			empWage=employeeHour * empRatePerHrs;
-			System.out.println("Employee Wage:" + empWage);
-		}
-		//calculated daily salary
-		salary=(empRatePerHrs * employeeHour);
+		//calculated total employee hour
+		totalEmployeeHour=(totalEmployeeHour + employeeHour);
 
-		//calculated monthly Salary
-		totalSalary=(totalSalary+salary);
+		//calculated total Salary
+		totalSalary=(empRatePerHrs * totalEmployeeHour);
+		}
+
+		System.out.println("total salary of employee:" +totalSalary);
 	}
 
 	//main method
@@ -58,4 +61,3 @@ public class EmployeeWage
    employee.calculatedEmployeeWage();
   }
 }
-
